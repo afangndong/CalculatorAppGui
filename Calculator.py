@@ -1,9 +1,9 @@
 import tkinter as tk
 import sqlite3
-import addition
-import substraction
-import multiplication
-import division
+from addition import add
+from substraction import sub
+from multiplication import mul
+from division import div
 
 class Calculator:
     def __init__(self, master):
@@ -24,7 +24,7 @@ class Calculator:
         ]
 
         for (text, row, col) in button_texts:
-            tk.Button(master, text=text, width=5, height=2, command=lambda t=text: self.on_button_click(t)).grid(row=row, column=col)
+            tk.Button(master, text=text, width=10, height=4, command=lambda t=text: self.on_button_click(t)).grid(row=row, column=col)
 
         # Create a connection to SQLite database
         self.conn = sqlite3.connect('calculation_history.db')
