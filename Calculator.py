@@ -1,7 +1,7 @@
 import tkinter as tk
 import sqlite3
 import addition
-import subtraction
+import substraction
 import multiplication
 import division
 
