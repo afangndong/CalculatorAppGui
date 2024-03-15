@@ -4,6 +4,8 @@ from addition import add
 from substraction import sub
 from multiplication import mul
 from division import div
+from history import show_history  # Import the show_history function from history.py
+
 
 class Calculator:
     def __init__(self, master):
@@ -20,7 +22,8 @@ class Calculator:
             ('7', 1, 0), ('8', 1, 1), ('9', 1, 2), ('/', 1, 3),
             ('4', 2, 0), ('5', 2, 1), ('6', 2, 2), ('*', 2, 3),
             ('1', 3, 0), ('2', 3, 1), ('3', 3, 2), ('-', 3, 3),
-            ('0', 4, 0), ('C', 4, 1), ('=', 4, 2), ('+', 4, 3)
+            ('0', 4, 0), ('C', 4, 1), ('=', 4, 2), ('+', 4, 3),
+            ('History', 5, 0)  # Add a History button
         ]
 
         for (text, row, col) in button_texts:
@@ -56,6 +59,8 @@ class Calculator:
             self.result_var.set("")
         elif value in ['+', '-', '*', '/']:
             self.current_input += value
+        elif value == 'History':  # Show history when the History button is clicked
+            show_history()  # Call the show_history function from history.py
         else:
             self.current_input += value
             self.result_var.set(self.current_input)
